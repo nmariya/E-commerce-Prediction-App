@@ -3,3 +3,4 @@ nltk
 numpy
 matplotlib
 pillow
+streamlit
