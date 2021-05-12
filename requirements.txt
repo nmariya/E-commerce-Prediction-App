@@ -3,6 +3,6 @@ nltk
 numpy
 matplotlib
 pillow
-streamlit
+gunicorn
 torch
 torchvision
