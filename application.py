@@ -64,17 +64,17 @@ class RNN_lstm(nn.Module):
 # i_model = create_model(input_shape=(299,299,3), n_out=27)
 
 # Dictionary
-with open('./ML_models/train_dictionary.pk', 'rb') as f:
+with open('train_dictionary.pk', 'rb') as f:
     res2 = pickle.load(f)
 n_words = len(res2)
 # Categories dictionary
-with open('./ML_models/cat_dictionary.pk', 'rb') as f:
+with open('cat_dictionary.pk', 'rb') as f:
     all_categories = pickle.load(f)
 n_categories = len(all_categories)
 n_hidden = 128
 # Load the saved model states
 model = RNN_lstm(n_words, n_hidden, n_categories)
-model.load_state_dict(torch.load('./ML_models/char_rnn_lstm_classification_model_state.pt'))
+model.load_state_dict(torch.load('char_rnn_lstm_classification_model_state.pt'))
 
 # # Load model weights to 
 # i_model.load_weights("./ML_models/model.h5")
