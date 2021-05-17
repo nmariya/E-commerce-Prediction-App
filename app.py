@@ -140,7 +140,7 @@ def evaluate_pickl(line_tensor, n_predictions=1):
 #     image = np.divide(image, 255)
 #     return image 
 
-@app.route('/predict')
+@app.route('/predict', methods=['POST'])
 def predict():
     # Text prediction
     test_str = "Women	Brown	Summer	Casual	Senorita ColorBurst Brown Flats	"
