@@ -84,6 +84,13 @@ app = Flask(__name__)
 @app.route('/')
 def main():
     return render_template('index.html')
+def predict():
+    # Text prediction
+    test_str = "Women	Brown	Summer	Casual	Senorita ColorBurst Brown Flats	"
+    t = clean_doc(test_str)
+    line_tensor = lineToTensor(t)
+    out = evaluate_pickl(line_tensor)
+    return "Prediction from Text Classification model " + out
 
 # Text preprocessing
 def clean_doc(doc):
