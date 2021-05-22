@@ -9,6 +9,8 @@ from torch.autograd import Variable
 import numpy as np
 import matplotlib.pyplot as plt
 import warnings
+import nltk
+nltk.download('stopwords')
 warnings.filterwarnings("ignore")
 
 # Text model - RNN with LSTM units
