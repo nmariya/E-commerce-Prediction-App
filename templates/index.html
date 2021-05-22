@@ -5,11 +5,33 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 </head>
+
 <body>
-    <h1>E-Commerce App</h1>
-    <br>
-    <br>
-    {{ prediction_text }}
+ <div class="login">
+	<h1>E Commerce App</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Gender" placeholder="Gender" required="required" />
+        <input type="text" name="Base Color" placeholder="Base Color" required="required" />
+		<input type="text" name="Season" placeholder="Season" required="required" />
+        <input type="text" name="Usage" placeholder="Usage" required="required" />
+        <input type="text" name="Text Description" placeholder="Text Description" required="required" />
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
 </body>
 </html>
