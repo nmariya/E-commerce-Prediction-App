@@ -1,5 +1,7 @@
 from flask import Flask, render_template, jsonify, request
 import pickle
+import nltk
+nltk.download('stopwords')
 from nltk.corpus import stopwords
 import string
 from nltk.stem import PorterStemmer
@@ -9,8 +11,6 @@ from torch.autograd import Variable
 import numpy as np
 import matplotlib.pyplot as plt
 import warnings
-import nltk
-nltk.download('stopwords')
 warnings.filterwarnings("ignore")
 
 # Text model - RNN with LSTM units
