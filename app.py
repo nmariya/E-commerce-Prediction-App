@@ -100,7 +100,7 @@ def evaluate_pickl(line_tensor, n_predictions=1):
             category_index_lstm = topi_lstm[0][i].item()
     return all_categories[category_index_lstm]
 
-@app.route('/predict', methods=['POST'])
+@app.route('/predict', methods=['GET','POST'])
 def predict():
     # Text prediction
     # test_str = "Women	Brown	Summer	Casual	Senorita ColorBurst Brown Flats	"
@@ -110,7 +110,7 @@ def predict():
     t = clean_doc(str(features))
     line_tensor = lineToTensor(t)
     out = evaluate_pickl(line_tensor)
-    return render_template('index.html',prediction_text="Prediction from Text Classification model ${}".format(out))
+    return render_template('index.html',prediction_text=t)
 
 # @app.route('/fruits')
 # def fruits():
