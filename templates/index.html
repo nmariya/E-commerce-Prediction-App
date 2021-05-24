@@ -4,31 +4,168 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
-</head>
+    <title>E-commerce Prediction App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <style>
+      .center {
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+      }
+      body {
+      background-image: url('bg.jpg');
+      background-repeat:no-repeat;
+      background-size:cover;
+      }
+      </style>
+
+  </head>
 
 <body>
  <div class="login">
-	<h1>E Commerce App</h1>
-
+  <div style="color:rgb(205, 225, 235)" class="center">
+	  <h1>E-commerce Prediction</h1>
+  </div>
+  <div style="color:rgba(177, 201, 206, 0.781); padding-left: 75px; padding-right: 75px;" class="center">
+	  <p><b><i>This is a Text-Prediction App trained to predict the e-commerce
+      product category from the text description you enter in the text-box below.
+      If you have more information like, gender, usage etc., you could give in those
+      details as well to get a more accurate prediction.</i></b></p>
+      <br>
+  </div>
+  <div style="color:rgb(207, 218, 217); padding-left: 75px">
+	  <h6>Sample Product Details</h6>
+    <p>Ex:   <vr>Men White Summer Casual Buta Men White T-shirt</vr></p>
+  </div>
+  <hr>
+  <br>
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
-    	<input type="text" name="Gender" placeholder="Gender" required="required" />
-        <input type="text" name="Base Color" placeholder="Base Color" required="required" />
-		<input type="text" name="Season" placeholder="Season" required="required" />
-        <input type="text" name="Usage" placeholder="Usage" required="required" />
-        <input type="text" name="Text Description" placeholder="Text Description" required="required" />
-
-        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        <div class="row">
+            <div class="col mr-auto" style="color:wheat; padding-left: 50px;">
+              <label for="Gender">Gender</label>
+              <select class="custom-select d-block w-100" id="gender">
+                <option value="">Choose</option>
+                <option>Girls</option>
+                <option>Boys</option>
+                <option>Men</option>
+                <option>Women</option>
+                <option>Unisex</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select an option.
+              </div>
+            </div>
+            <div class="col mr-auto" style="color:wheat">
+              <label for="Base Color">Base Color</label>
+              <select class="custom-select d-block w-100" id="Base Color">
+                <option value="">Choose</option>
+                <option>Beige</option>
+                <option>Black</option>
+                <option>Blue</option>
+                <option>Brown</option>
+                <option>Bronze</option>
+                <option>Burgundy</option>
+                <option>Charcoal</option>
+                <option>Coffee Brown</option>
+                <option>Copper</option>
+                <option>Cream</option>
+                <option>Fluorescent Green</option>
+                <option>Gold</option>
+                <option>Green</option>
+                <option>Grey</option>
+                <option>Grey Melange</option>
+                <option>Khaki</option>
+                <option>Lavender</option>
+                <option>Lime Green</option>
+                <option>Magenta</option>
+                <option>Maroon</option>
+                <option>Mauve</option>
+                <option>Metallic</option>
+                <option>Multi</option>
+                <option>Mushroom Brown</option>
+                <option>Mustard</option>
+                <option>Navy Blue</option>
+                <option>Nude</option>
+                <option>Off White</option>
+                <option>Olive</option>
+                <option>Orange</option>
+                <option>Peach</option>
+                <option>Pink</option>
+                <option>Purple</option>
+                <option>Red</option>
+                <option>Rose</option>
+                <option>Rust</option>
+                <option>Sea Green</option>
+                <option>Silver</option>
+                <option>Skin</option>
+                <option>Steel</option>
+                <option>Tan</option>
+                <option>Taupe</option>
+                <option>Teal</option>
+                <option>Turquoise Blue</option>
+                <option>White</option>
+                <option>Yellow</option>
+              </select>
+              <div class="invalid-feedback">
+                Please provide a valid color.
+              </div>
+            </div>
+            <div class="col mr-0" style="color:wheat">
+              <label for="Season">Season</label>
+              <select class="custom-select d-block w-100" id="Season">
+                <option value="">Choose</option>
+                <option>Fall</option>
+                <option>Spring</option>
+                <option>Summer</option>
+                <option>Winter</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid season.
+              </div>
+            </div>
+            <div class="col mr-0" style="color:wheat">
+              <label for="Usage">Usage</label>
+              <select class="custom-select d-block w-100" id="Usage">
+                <option value="">Choose</option>
+                <option>Casual</option>
+                <option>Ethnic</option>
+                <option>Formal</option>
+                <option>Party</option>
+                <option>Smart Casual</option>
+                <option>Sports</option>
+                <option>Travel</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select an option.
+              </div>
+            </div>
+            <div class="col mr-0" style="color:wheat; padding-right: 50px;">
+              <label for="Product Description">Product Description</label>
+              <input type="text" class="form-control w-150" id="Product Description" placeholder="Ex: Buta Men White T-shirt" required>
+              <div class="invalid-feedback">
+                Please enter your product description.
+              </div>
+            </div>
+        </div>
+        <hr class="mb-6">
+        <div class="container">
+          <div class="center">
+            <button button style="width: 150px;" type="submit" class="btn btn-primary">Predict</button>
+          </div>
+        </div>
+        
+        
     </form>
 
    <br>
-   <br>
-   {{ prediction_text }}
+   <div class="center">
+      {{ prediction_text }}
+   </div>
+   
 
  </div>
 
