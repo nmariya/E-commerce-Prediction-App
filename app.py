@@ -110,7 +110,7 @@ def predict():
     t = clean_doc(str(features))
     line_tensor = lineToTensor(t)
     out = evaluate_pickl(line_tensor)
-    return render_template('index.html',prediction_text=t)
+    return render_template('index.html',prediction_text=features)
 
 # @app.route('/fruits')
 # def fruits():
