@@ -39,7 +39,7 @@ with open('train_dictionary.pk', 'rb') as f:
     res2 = pickle.load(f)
 n_words = len(res2)
 # Categories dictionary
-with open('./cat_dictionary.pk', 'rb') as f:
+with open('cat_dictionary.pk', 'rb') as f:
     all_categories = pickle.load(f)
 n_categories = len(all_categories)
 n_hidden = 128
@@ -110,7 +110,7 @@ def predict():
     t = clean_doc(str(features))
     line_tensor = lineToTensor(t)
     out = evaluate_pickl(line_tensor)
-    return render_template('index.html',prediction_text=features)
+    return render_template('index.html',prediction_text=out)
 
 # @app.route('/fruits')
 # def fruits():
