@@ -103,30 +103,12 @@ def evaluate_pickl(line_tensor, n_predictions=1):
 @app.route('/predict', methods=['GET','POST'])
 def predict():
     # Text prediction
-    # test_str = "Women	Brown	Summer	Casual	Senorita ColorBurst Brown Flats	"
-    features=" "
-    for x in request.form.values():
-        features = features + " " + x
+    # Sample Input : "Women	Brown	Summer	Casual	Senorita ColorBurst Brown Flats	"
+    features=str(request.form.get("gender"))+" "+str(request.form.get("Base Color"))+" "+str(request.form.get("Season"))+" "+str(request.form.get("Usage"))+" "+str(request.form.get("Product Description"))
     t = clean_doc(str(features))
     line_tensor = lineToTensor(t)
     out = evaluate_pickl(line_tensor)
-    return render_template('index.html',prediction_text=out)
-
-# @app.route('/fruits')
-# def fruits():
-#     beers = [
-#         {
-#             'brand': 'Guinness',
-#             'type': 'stout'
-#         },
-#         {
-#             'brand': 'Hop House 13',
-#             'type': 'lager'
-#         }
-#     ]
-#     list_of_fruits = ['banana', 'orange', 'apple']
-#     list_of_drinks = ['coke', 'milk', beers]
-#     return jsonify(Fruits=list_of_fruits, Drinks=list_of_drinks)
+    return render_template('index.html',prediction_text="{}".format(out))
 
 if __name__ == '__main__':
     app.run(port=8080 ,debug=True)

@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce Prediction App</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -45,9 +49,9 @@
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
         <div class="row">
-            <div class="col mr-auto" style="color:rgba(16, 94, 238, 0.541); padding-left: 50px;">
+            <div class="col mr-auto" style="color:rgba(16, 94, 238, 0.541); padding-left: 50px;" required="required">
               <label for="Gender">Gender</label>
-              <select class="custom-select d-block w-100" id="gender">
+              <select class="custom-select d-block w-100" id="gender" name="gender">
                 <option value="">Choose</option>
                 <option>Girls</option>
                 <option>Boys</option>
@@ -59,9 +63,9 @@
                 Please select an option.
               </div>
             </div>
-            <div class="col mr-auto" style="color:rgba(16, 94, 238, 0.541)">
+            <div class="col mr-auto" style="color:rgba(16, 94, 238, 0.541)" required="required">
               <label for="Base Color">Base Color</label>
-              <select class="custom-select d-block w-100" id="Base Color">
+              <select class="custom-select d-block w-100" id="Base Color" name="Base Color">
                 <option value="">Choose</option>
                 <option>Beige</option>
                 <option>Black</option>
@@ -114,9 +118,9 @@
                 Please provide a valid color.
               </div>
             </div>
-            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541)">
+            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541)"required="required">
               <label for="Season">Season</label>
-              <select class="custom-select d-block w-100" id="Season">
+              <select class="custom-select d-block w-100" id="Season" name="Season">
                 <option value="">Choose</option>
                 <option>Fall</option>
                 <option>Spring</option>
@@ -127,9 +131,9 @@
                 Please select a valid season.
               </div>
             </div>
-            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541)">
+            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541)"required="required">
               <label for="Usage">Usage</label>
-              <select class="custom-select d-block w-100" id="Usage">
+              <select class="custom-select d-block w-100" id="Usage" name="Usage">
                 <option value="">Choose</option>
                 <option>Casual</option>
                 <option>Ethnic</option>
@@ -143,9 +147,9 @@
                 Please select an option.
               </div>
             </div>
-            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541); padding-right: 50px;">
+            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541); padding-right: 50px;"required="required">
               <label for="Product Description">Product Description</label>
-              <input type="text" class="form-control w-150" id="Product Description" placeholder="Ex: Buta Men White T-shirt" required>
+              <input type="text" class="form-control w-150" name="Product Description" id="Product Description" placeholder="Ex: Buta Men White T-shirt" required>
               <div class="invalid-feedback">
                 Please enter your product description.
               </div>
@@ -162,8 +166,8 @@
     </form>
 
    <br>
-   <div class="center">
-      {{ prediction_text }}
+   <div class="center" style="color:rgba(5, 52, 83, 0.89); font-family: Georgia, 'Times New Roman', Times, serif; font-size: larger;">
+      <b>{{ prediction_text }}</b>
    </div>
    
 
