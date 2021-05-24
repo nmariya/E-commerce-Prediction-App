@@ -13,3 +13,7 @@ We developed a front-end app using python Flask framework and deployed it as a s
 <p align="left">
 <img src="./static/text_example.png"/>
 </p>
+
+### Demo
+
+![]<img src="./static/Pred-App.gif" width="750" height="450">
