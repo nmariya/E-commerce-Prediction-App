@@ -20,7 +20,7 @@
         align-items: center; 
       }
       body {
-      background-image: url('../static/bg.jpg');
+      background-image: url('../static/bg2.jpg');
       background-repeat:no-repeat;
       background-size:cover;
       }
@@ -30,26 +30,42 @@
 
 <body>
  <div class="login">
-  <div style="color:rgb(205, 225, 235)" class="center">
+  <div style="color:rgb(205, 225, 235); font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" class="center">
 	  <h1>E-commerce Prediction</h1>
   </div>
-  <div style="color:rgba(177, 201, 206, 0.781); padding-left: 75px; padding-right: 75px;" class="center">
+  <div style="color:rgba(177, 201, 206, 0.781); padding-left: 75px; padding-right: 75px; font-size: larger;" class="center">
 	  <p><b><i>This is a Text-Prediction App trained to predict the e-commerce
       product category from the text description you enter in the text-box below.
       If you have more information like, gender, usage etc., you could give in those
       details as well to get a more accurate prediction.</i></b></p>
       <br>
   </div>
-  <div style="color:rgb(207, 218, 217); padding-left: 75px">
-	  <h6>Sample Product Details</h6>
-    <p>Ex:   <vr>Men White Summer Casual Buta Men White T-shirt</vr></p>
+  <div style="color:rgb(182, 216, 236); padding-left: 75px">
+	  <!-- <h6>Sample Product Details</h6> -->
+    <p><i>Example:</i></p>
+    <p>  <vr>Men <span style="display:inline-block; width: 30px; font-size: xx-large;"></span>
+      White <span style="display:inline-block; width: 30px; font-size: xx-large;"></span>
+      Summer <span style="display:inline-block; width: 30px; font-size: xx-large;"></span>
+      Casual <span style="display:inline-block; width: 30px; font-size: xx-large;"></span>
+      Buta Men White T-shirt</vr></p>
+    <p><span style="display:inline-block; width: 30px; font-size: xx-large;"></span>&#8681;
+      <span style="display:inline-block; width: 60px; font-size: xx-large;"></span>&#8681;
+      <span style="display:inline-block; width: 80px; font-size: xx-large;"></span>&#8681;
+      <span style="display:inline-block; width: 70px; font-size: xx-large;"></span>&#8681;
+      <span style="display:inline-block; width: 70px; font-size: xx-large;"></span>&#8664;
+      <span style="display:inline-block; width: 100px; font-size: xx-large;"></span>&#8665;
+    </p>
+    <p><i>(Gender)<span style="display:inline-block; width: 10px; font-size: xx-large;"></span>
+    (Base Color)<span style="display:inline-block; width: 10px; font-size: xx-large;"></span>
+  (Season)<span style="display:inline-block; width: 25px; font-size: xx-large;"></span>
+(Usage)<span style="display:inline-block; width: 30px; font-size: xx-large;"></span>
+(Product Description)</i></p>
   </div>
   <hr>
-  <br>
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('predict')}}"method="post">
         <div class="row">
-            <div class="col mr-auto" style="color:rgba(16, 94, 238, 0.541); padding-left: 50px;" required="required">
+            <div class="col mr-auto" style="color:rgba(191, 218, 240, 0.986); padding-left: 50px; font-size:large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" required="required">
               <label for="Gender">Gender</label>
               <select class="custom-select d-block w-100" id="gender" name="gender">
                 <option value="">Choose</option>
@@ -63,7 +79,7 @@
                 Please select an option.
               </div>
             </div>
-            <div class="col mr-auto" style="color:rgba(16, 94, 238, 0.541)" required="required">
+            <div class="col mr-auto" style="color:rgba(191, 218, 240, 0.986); font-size:large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;" required="required">
               <label for="Base Color">Base Color</label>
               <select class="custom-select d-block w-100" id="Base Color" name="Base Color">
                 <option value="">Choose</option>
@@ -118,7 +134,7 @@
                 Please provide a valid color.
               </div>
             </div>
-            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541)"required="required">
+            <div class="col mr-0" style="color:rgba(191, 218, 240, 0.986); font-size:large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"required="required">
               <label for="Season">Season</label>
               <select class="custom-select d-block w-100" id="Season" name="Season">
                 <option value="">Choose</option>
@@ -131,7 +147,7 @@
                 Please select a valid season.
               </div>
             </div>
-            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541)"required="required">
+            <div class="col mr-0" style="color:rgba(191, 218, 240, 0.986); font-size:large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;"required="required">
               <label for="Usage">Usage</label>
               <select class="custom-select d-block w-100" id="Usage" name="Usage">
                 <option value="">Choose</option>
@@ -147,7 +163,7 @@
                 Please select an option.
               </div>
             </div>
-            <div class="col mr-0" style="color:rgba(16, 94, 238, 0.541); padding-right: 50px;"required="required">
+            <div class="col mr-0" style="color:rgba(191, 218, 240, 0.986); font-size:large; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; padding-right: 50px;"required="required">
               <label for="Product Description">Product Description</label>
               <input type="text" class="form-control w-150" name="Product Description" id="Product Description" placeholder="Ex: Buta Men White T-shirt" required>
               <div class="invalid-feedback">
@@ -166,7 +182,7 @@
     </form>
 
    <br>
-   <div class="center" style="color:rgba(5, 52, 83, 0.89); font-family: Georgia, 'Times New Roman', Times, serif; font-size: larger;">
+   <div class="center" style="color:rgb(212, 240, 208); font-family: Georgia, 'Times New Roman', Times, serif; font-size: larger;">
       <b>{{ prediction_text }}</b>
    </div>
    
