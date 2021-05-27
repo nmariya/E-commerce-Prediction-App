@@ -16,4 +16,4 @@ We developed a front-end app using python Flask framework and deployed it as a s
 
 ### Demo
 
-![]<img src="./static/Pred-App.gif" width="750" height="450">
+![]<img src="./static/pa.mp4" width="750" height="450">
