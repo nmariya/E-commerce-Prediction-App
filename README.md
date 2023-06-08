@@ -1,7 +1,5 @@
 # E-commerce Prediction App 
 
-**Application is available at https://e-comm-predict.herokuapp.com/**
-
 **Successfully deployed an RNN based text model on heroku.**
 
 Original files could be found here in this [repository](https://github.com/nmariya/e-commerce-classifier) 
